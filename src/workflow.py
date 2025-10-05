@@ -46,3 +46,26 @@ class Workflow:
         except Exception as e:
             print(e)
             return {"extracted_tools": []}
+        
+    def _analyze_company_content(self, company_name: str, content: str) -> CompanyAnalysis:
+        structured_llm = self.llm.with_structured_output(CompanyAnalysis)
+
+        messages = [
+            SystemMessage(content=self.prompts.TOOL_ANALYSIS_SYSTEM),
+            HumanMessage(content=self.prompts.tool_analysis_user(company_name, content))
+        ]
+
+        try:
+            analysis = structured_llm.invoke(messages)
+            return analysis
+        except Exception as e:
+            print(e)
+            return CompanyAnalysis(
+                pricing_model="Unknown",
+                is_open_source=None,
+                tech_stack=[],
+                description="Failed",
+                api_available=None,
+                language_support=[],
+                integration_capabilities=[],
+            )
