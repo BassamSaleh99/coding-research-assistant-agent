@@ -5,7 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "firecrawl-py>=4.3.6",
+    "firecrawl-py==2.7.1",
     "langchain>=0.3.27",
     "langchain-mcp-adapters>=0.1.10",
     "langchain-openai>=0.3.34",
