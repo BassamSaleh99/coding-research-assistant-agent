@@ -141,3 +141,8 @@ class Workflow:
 
         response = self.llm.invoke(messages)
         return {"analysis": response.content}
+    
+    def run(self, query: str) -> ResearchState:
+        initial_state = ResearchState(query=query)
+        final_state = self.workflow.invoke(initial_state)
+        return ResearchState(**final_state)
