@@ -117,3 +117,18 @@ class Workflow:
                 companies.append(company)
 
         return {"companies": companies}
+    
+    def _analyze_step(self, state: ResearchState) -> Dict[str, Any]:
+        print("Generating recommendations")
+
+        company_data = ", ".join([
+            company.json() for company in state.companies
+        ])
+
+        messages = [
+            SystemMessage(content=self.prompts.RECOMMENDATIONS_SYSTEM),
+            HumanMessage(content=self.prompts.recommendations_user(state.query, company_data))
+        ]
+
+        response = self.llm.invoke(messages)
+        return {"analysis": response.content}
