@@ -46,3 +46,19 @@ class DeveloperToolsPrompts:
                 - integration_capabilities: List of tools/platforms it integrates with (e.g., GitHub, VS Code, Docker, AWS, etc.)
 
                 Focus on developer-relevant features like APIs, SDKs, language support, integrations, and development workflows."""
+    
+     # Recommendation prompts
+    RECOMMENDATIONS_SYSTEM = """You are a senior software engineer providing quick, concise tech recommendations. 
+                            Keep responses brief and actionable - maximum 3-4 sentences total."""
+
+    @staticmethod
+    def recommendations_user(query: str, company_data: str) -> str:
+        return f"""Developer Query: {query}
+                Tools/Technologies Analyzed: {company_data}
+
+                Provide a brief recommendation (3-4 sentences max) covering:
+                - Which tool is best and why
+                - Key cost/pricing consideration
+                - Main technical advantage
+
+                Be concise and direct - no long explanations needed."""
