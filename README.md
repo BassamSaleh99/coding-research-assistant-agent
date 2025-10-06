@@ -37,12 +37,9 @@ It uses multi-step reasoning to:
 
 ## 🧠 Example Use
 ```bash
-python advanced-agent.py
-
 Example Input
 
 🔍 Developer Tools Query: best API management platforms
-
 
 Example Output
 
@@ -57,7 +54,7 @@ Example Output
 Developer Recommendations:
 Postman offers a balance between usability and enterprise features, making it ideal for small-to-medium teams.
 ```
-🛠 Tech Stack
+## 🛠 Tech Stack
 
 LangChain + LangGraph – workflow orchestration
 
@@ -67,7 +64,6 @@ Firecrawl – intelligent web crawling and content scraping
 
 Pydantic – data validation and serialization
 
-Python 3.10+
 
 ## 📦 Installation
 #### 1️⃣ Clone the repository
@@ -96,3 +92,4 @@ Add your API keys in a .env file:
 OPENAI_API_KEY=your_openai_key
 FIRECRAWL_API_KEY=your_firecrawl_key
 ---
+
