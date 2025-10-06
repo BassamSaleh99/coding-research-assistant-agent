@@ -89,8 +89,9 @@ uv sync
 ```
 Add your API keys in a .env file:
 
-OPENAI_API_KEY=your_openai_key
+OPENAI_API_KEY=your_openai_key, 
 FIRECRAWL_API_KEY=your_firecrawl_key
+
 
 
 
